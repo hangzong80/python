@@ -1,0 +1,55 @@
+import xlrd
+# 打开工作簿2.3r.xls
+workbook=xlrd.open_workbook("2.3r.xls")
+# 通过索引获取，例如打开第一个sheet表格
+sheet1=workbook.sheet_by_index(0)
+# 获取该sheet1中的有效行数
+nrows = sheet1.nrows
+#获取sheet1中的有效列数
+ncols = sheet1.ncols
+
+
+
+# # 遍历建立新的列表，从第一列到最后一列
+# title_list=[]
+# for i in range(ncols):
+#     # 遍历第二行形成清单
+#     title_list.append(sheet1.cell_value(2,i))
+#     #print(sheet1.cell_value(2,i))
+# print(title_list)
+
+
+print(sheet1.col_types(4, start_rowx=0, end_rowx=None))
+
+for n in range(ncols):
+    data_list=[]
+    i=2
+    for i in range(nrows):
+        # 遍历i列形成数据列表
+        data_list.append(sheet1.cell_value(0,i))
+        print(data_list.append(sheet1.cell_value(0, i)))
+
+
+    # def data(i):
+    #     data(i)=data_list
+    # data(i)=data_list
+
+# 切片列表9-11，步长1.
+#title_list1=title_list[9:12:1]
+
+#print(title_list1)
+# 列表顺序调整
+
+# new_workbook.save('test2.6.xls')
+
+
+
+list = []#总体思路是把Excel中数据以字典的形式存在字符串中一个字典当成一个列表元素
+for rownum in range(1,self.nrows):
+    row = self.table.row_values(rownum)#获取所有行数每一行的数据值
+    if row:
+        app = {}#主要以{'name': 'zhangsan', 'password': 12324.0}，至于字典中有多少元素主要看有多少列
+        for i in range(len(self.colnames)):
+        #在这个Excel中，列所在的行有两个数据，所以没循环一行就以这两个数据为键，行数的值为键的值，保存在一个字典里
+        app[self.colnames[i]] = row[i]
+        list.append(app)
